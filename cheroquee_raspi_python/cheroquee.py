@@ -46,8 +46,9 @@ for index, glyph in enumerate(message):
 
 # Initialize the marquee array
 marqueeArray = np.zeros((8, 8*(SIZE+1)))
+# Add the column-control signal to the end of the array
 for x in range(8):
-    marqueeArray[x,x] = 1
+    marqueeArray[x,(8*SIZE)+x] = 1
 
 # Initialize the marquee communications
 stp16.init()
@@ -72,7 +73,7 @@ while(1):
         currTime = time.time()
 
     # update marquee
-    marqueeArray[:, 8:-1] = marqueeArray[:, 9:]
-    marqueeArray[:,-1] = fullArray[:,newColumn]
+    marqueeArray[:, 0:-9] = marqueeArray[:, 1:-8]
+    marqueeArray[:,-9] = fullArray[:,newColumn]
     newColumn += 1
     newColumn = newColumn % len(fullArray[0,:])
