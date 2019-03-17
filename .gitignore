@@ -1,0 +1,5 @@
+IGNOREME/
+.spyderworkspace
+.spyderproject
+*.pyc
+gerbs.zip
