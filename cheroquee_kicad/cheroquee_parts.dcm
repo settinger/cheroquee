@@ -1,0 +1,20 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LED_8x8_ROW_ANODE
+D 8x8 LED array, row anode
+$ENDCMP
+#
+$CMP LED_8x8_ROW_CATHODE
+D 8x8 LED array, row cathode
+$ENDCMP
+#
+$CMP LED_tiny
+D 8x8 LED array, row cathode
+$ENDCMP
+#
+$CMP STP16
+D 16-Port, 5.5V Constant-Current LED Driver
+F https://datasheets.maximintegrated.com/en/ds/MAX6969.pdf
+$ENDCMP
+#
+#End Doc Library

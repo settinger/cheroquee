@@ -1,0 +1,7 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LED_8x8_ROW_CATHODE
+D 8x8 LED array, row cathode
+$ENDCMP
+#
+#End Doc Library
