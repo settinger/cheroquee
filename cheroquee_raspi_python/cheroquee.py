@@ -33,7 +33,7 @@ arguments = len(sys.argv)-1
 if arguments == 1:
     message = sys.argv[1]
 else:
-    message = "ᏣᎳᎩᎯ ᎠᏰᎵ"
+    message = u"ᏣᎳᎩᎯ ᎠᏰᎵ"
 
 # Convert message to pixel array
 # fullArray = np.zeros((8,8*(len(message)+3)))  # The "+3 is to add some padding between loops
