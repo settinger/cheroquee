@@ -14,13 +14,13 @@ import time
 
 ## definitions:
 # Number of 8x8 panels
-SIZE = 1
+SIZE = 3
 
 # Frames per second
 FPS = 8
 
 # Column refresh rate
-f_refresh = 288
+f_refresh = 256
 
 # (Ideally) frequency of PWM for LEDs
 f_PWM = 500
@@ -48,7 +48,7 @@ for index, glyph in enumerate(message):
 marqueeArray = np.zeros((8, 8*(SIZE+1)))
 # Add the column-control signal to the end of the array
 for x in range(8):
-    marqueeArray[x,(8*SIZE)+x] = 1
+    marqueeArray[7-x,(8*SIZE)+x] = 1
 
 # Initialize the marquee communications
 stp16.init()
@@ -68,6 +68,7 @@ while(1):
         for row in range(8):
             colStartTime = time.time()
             stp16.transmitBool(marqueeArray[row,:])
+            #input(str(marqueeArray[row,:]))
             while (currTime-colStartTime < columnPeriod):
                 currTime = time.time()
         currTime = time.time()
