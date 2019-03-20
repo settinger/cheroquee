@@ -82,6 +82,6 @@ while(1):
     marqueeArray[:, -9] = fullArray[:,newColumn]
     for row in range(8):
         for col in range(SIZE):
-            byteArray[row,col] = arrayToByte[row,8*col:9*col]
+            byteArray[row,col] = arrayToByte(marqueeArray[row,8*col:9*col])
     newColumn += 1
     newColumn = newColumn % len(fullArray[0,:])
