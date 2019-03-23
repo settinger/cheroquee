@@ -6,15 +6,16 @@ Use standard shift-register LED-driver communication protocol to drive an 8-pixe
 """
 
 from chardict import chardict
-from bytemanip import byteToArray
-import stp16
+from bytemanip import byteToArray, arrayToByte
+# import stp16
 import sys
 import numpy as np
 import time
+import spidev # https://pypi.org/project/spidev/
 
 ## definitions:
 # Number of 8x8 panels
-SIZE = 1
+SIZE = 3
 
 # Frames per second
 FPS = 8
@@ -31,7 +32,7 @@ arguments = len(sys.argv)-1
 
 # If a message was passed, display it on the marquee; else, display default 
 if arguments == 1:
-    message = sys.argv[1]
+    message = str(sys.argv[1]) # TODO: ensure argv is parsed as UTF-8
 else:
     message = u"ᏣᎳᎩᎯ ᎠᏰᎵ"
 
@@ -46,12 +47,16 @@ for index, glyph in enumerate(message):
 
 # Initialize the marquee array
 marqueeArray = np.zeros((8, 8*(SIZE+1)))
+byteArray = np.zeros((8,SIZE+1))
 # Add the column-control signal to the end of the array
 for x in range(8):
-    marqueeArray[x,(8*SIZE)+x] = 1
+    marqueeArray[7-x,(8*SIZE)+x] = 1
+    byteArray[x,-1] = 1<<x
 
 # Initialize the marquee communications
-stp16.init()
+spi = spidev.SpiDev()
+spi.open(0,0)
+spi.max_speed_hz = 976000
 
 ## Do a loop
 columnPeriod = 1./f_refresh
@@ -67,13 +72,16 @@ while(1):
         # Transmit all eight rows
         for row in range(8):
             colStartTime = time.time()
-            stp16.transmitBool(marqueeArray[row,:])
+            spi.xfer(byteArray[row,:])
             while (currTime-colStartTime < columnPeriod):
                 currTime = time.time()
         currTime = time.time()
 
     # update marquee
     marqueeArray[:, 0:-9] = marqueeArray[:, 1:-8]
-    marqueeArray[:,-9] = fullArray[:,newColumn]
+    marqueeArray[:, -9] = fullArray[:,newColumn]
+    for row in range(8):
+        for col in range(SIZE):
+            byteArray[row,col] = arrayToByte(marqueeArray[row,8*col:9*col])
     newColumn += 1
     newColumn = newColumn % len(fullArray[0,:])
