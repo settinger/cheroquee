@@ -15,5 +15,5 @@ def arrayToByte(array):
     """ONLY WORKS ON 8-ITEM ARRAYS"""
     blah = 0x00
     for n, x in enumerate(array):
-        blah |= x<<(7-n)
-    return blah
+        blah |= int(x)<<(7-n)
+    return int(blah)
