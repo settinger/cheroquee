@@ -6,7 +6,11 @@ Requires [py-spidev](https://pypi.org/project/spidev/). `pip install py-spidev`
 
 Usage: `python3 cheroquee.py MESSAGE`, e.g. `python3 cheroquee.py "ᏣᎳᎩᎯ ᎠᏰᎵ"`
 
+For more info: www.settinger.net/projects.php?project=cheroquee
+
 * * * * *
+
+## Cultural note
 
 Let's be clear, I'm a white non-Cherokee-speaker showing off a potential tech tool for Cherokee-speakers. I worry about being insensitive, insulting, condescending, or inaccurate; I strive to be none of those things as I present this project. But if I screw up or speak out-of-turn, please tell me!
 
