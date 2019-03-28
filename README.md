@@ -4,7 +4,7 @@ A proof-of-concept scrolling LED marquee with support for Cherokee input. Could 
 
 Requires [py-spidev](https://pypi.org/project/spidev/). `pip install py-spidev`
 
-Usage: `python cheroquee.py MESSAGE`, e.g. `python cheroquee.py "ᏣᎳᎩᎯ ᎠᏰᎵ"`
+Usage: `python3 cheroquee.py MESSAGE`, e.g. `python3 cheroquee.py "ᏣᎳᎩᎯ ᎠᏰᎵ"`
 
 * * * * *
 
