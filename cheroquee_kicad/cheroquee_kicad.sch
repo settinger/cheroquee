@@ -324,7 +324,7 @@ U 1 1 5C8854D0
 P 1850 3050
 F 0 "U1" H 1850 3800 60  0000 C BNN
 F 1 "STP16" H 1850 3700 60  0000 C BNN
-F 2 "cheroquee:stp16_breakout" H 1850 3050 60  0001 C CNN
+F 2 "cheroquee:stp16_breakout_alt" H 1850 3050 60  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/MAX6969.pdf" H 1850 3050 60  0001 C CNN
 	1    1850 3050
 	1    0    0    -1  
@@ -623,7 +623,7 @@ U 1 1 5C8DC0B0
 P 1850 5450
 F 0 "U2" H 1850 6200 60  0000 C BNN
 F 1 "STP16" H 1850 6100 60  0000 C BNN
-F 2 "cheroquee:stp16_breakout" H 1850 5450 60  0001 C CNN
+F 2 "cheroquee:stp16_breakout_alt" H 1850 5450 60  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/MAX6969.pdf" H 1850 5450 60  0001 C CNN
 	1    1850 5450
 	1    0    0    -1  
@@ -713,42 +713,12 @@ Text GLabel 1450 2800 0    50   Input ~ 0
 ST
 Text GLabel 2250 2700 2    50   Input ~ 0
 SDO_1
-$Comp
-L power:GNDREF #PWR0108
-U 1 1 5C893ABA
-P 2800 2900
-F 0 "#PWR0108" H 2800 2650 50  0001 C CNN
-F 1 "GNDREF" H 2805 2727 50  0001 C CNN
-F 2 "" H 2800 2900 50  0001 C CNN
-F 3 "" H 2800 2900 50  0001 C CNN
-	1    2800 2900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2800 2900 2800 2800
-Wire Wire Line
-	2800 2800 2250 2800
 Text GLabel 1450 5000 0    50   Input ~ 0
 SDO_1
 Text GLabel 1450 5200 0    50   Input ~ 0
 ST
 Text GLabel 1450 5100 0    50   Input ~ 0
 CLK
-$Comp
-L power:GNDREF #PWR0109
-U 1 1 5C8A1F2A
-P 2800 5250
-F 0 "#PWR0109" H 2800 5000 50  0001 C CNN
-F 1 "GNDREF" H 2805 5077 50  0001 C CNN
-F 2 "" H 2800 5250 50  0001 C CNN
-F 3 "" H 2800 5250 50  0001 C CNN
-	1    2800 5250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2800 5250 2800 5200
-Wire Wire Line
-	2250 5200 2800 5200
 Text GLabel 2250 5100 2    50   Input ~ 0
 SDO_2
 $Comp
@@ -780,12 +750,12 @@ CLK
 Text GLabel 4100 5300 0    50   Input ~ 0
 ST
 $Comp
-L Connector_Generic:Conn_01x05 J1
+L Connector_Generic:Conn_01x06 J1
 U 1 1 5C8AD721
 P 4750 5100
 F 0 "J1" H 4830 5142 50  0000 L CNN
-F 1 "Conn_01x05" H 4830 5051 50  0000 L CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 4750 5100 50  0001 C CNN
+F 1 "Conn_01x06" H 4830 5051 50  0000 L CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 4750 5100 50  0001 C CNN
 F 3 "~" H 4750 5100 50  0001 C CNN
 	1    4750 5100
 	1    0    0    -1  
@@ -816,4 +786,16 @@ Wire Wire Line
 	4500 4900 4500 4600
 Wire Wire Line
 	4500 4600 4100 4600
+Text GLabel 2250 2800 2    50   Input ~ 0
+~OE
+Text GLabel 4100 5500 0    50   Input ~ 0
+~OE
+Text GLabel 2250 5200 2    50   Input ~ 0
+~OE
+Wire Wire Line
+	4100 5500 4200 5500
+Wire Wire Line
+	4200 5500 4200 5400
+Wire Wire Line
+	4200 5400 4550 5400
 $EndSCHEMATC
