@@ -21,7 +21,7 @@ SIZE = 3
 FPS = 8
 
 # Column refresh rate
-f_refresh = 288
+f_refresh = 256
 
 # (Ideally) frequency of PWM for LEDs
 f_PWM = 500
